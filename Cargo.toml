@@ -1,0 +1,29 @@
+[package]
+name = "dwiki"
+version = "0.1.0"
+edition = "2021"
+description = "Unofficial CLI for the DeepWiki MCP server — query repository documentation from your terminal or coding agent"
+license = "MIT"
+repository = "https://github.com/fu2hito/dwiki"
+keywords = ["mcp", "deepwiki", "cli", "agent"]
+categories = ["command-line-utilities", "development-tools"]
+readme = "README.md"
+
+[[bin]]
+name = "dwiki"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4", features = ["derive", "env"] }
+reqwest = { version = "0.12", features = ["json", "stream"] }
+tokio = { version = "1", features = ["full"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+anyhow = "1"
+futures-util = "0.3"
+bytes = "1"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
