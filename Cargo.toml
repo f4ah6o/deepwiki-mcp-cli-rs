@@ -1,6 +1,6 @@
 [package]
 name = "dwiki"
-version = "0.1.0"
+version = "2026.3.0"
 edition = "2021"
 description = "Unofficial CLI for the DeepWiki MCP server — query repository documentation from your terminal or coding agent"
 license = "MIT"

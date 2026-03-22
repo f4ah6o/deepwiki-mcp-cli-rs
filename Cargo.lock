@@ -189,7 +189,7 @@ dependencies = [
 
 [[package]]
 name = "dwiki"
-version = "0.1.0"
+version = "2026.3.0"
 dependencies = [
  "anyhow",
  "bytes",

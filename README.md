@@ -1,4 +1,8 @@
 # dwiki — Unofficial DeepWiki CLI
+<!-- bdg:begin -->
+[![crates.io](https://img.shields.io/crates/v/dwiki.svg)](https://crates.io/crates/dwiki)
+[![license](https://img.shields.io/github/license/fu2hito/dwiki.svg)](https://github.com/fu2hito/dwiki)
+<!-- bdg:end -->
 
 > **Disclaimer:** `dwiki` is an independent, third-party tool and is **not**
 > affiliated with or endorsed by [DeepWiki](https://deepwiki.com) or Cognition AI.
@@ -18,8 +22,8 @@ cargo install dwiki
 Or build from source:
 
 ```bash
-git clone https://github.com/fu2hito/dwiki
-cd dwiki
+git clone https://github.com/f4ah6o/deepwiki-mcp-cli-rs
+cd deepwiki-mcp-cli-rs
 cargo build --release
 # binary at: ./target/release/dwiki
 ```
@@ -203,6 +207,20 @@ dwiki ask tokio-rs/tokio "How does spawn work?" --output json | jq -r .result
 See [AGENTS.md](AGENTS.md) for the full agent workflow documentation, output
 schemas, and exit codes.
 
+## Versioning
+
+This project uses [CalVer](https://calver.org/) with the scheme **`YYYY.M.PATCH`**:
+
+| Segment | Meaning |
+|---------|---------|
+| `YYYY` | Full year (e.g. `2026`) |
+| `M` | Month without leading zero (e.g. `3` for March) |
+| `PATCH` | Patch increment within the month, starting at `0` |
+
+Example: `2026.3.0` is the first release of March 2026; a follow-up fix in the same month would be `2026.3.1`.
+
 ## License
 
 MIT — see [LICENSE](LICENSE).
+
+
