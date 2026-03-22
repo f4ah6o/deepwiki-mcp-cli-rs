@@ -45,21 +45,22 @@ dwiki read tokio-rs/tokio "Runtime"
 
 ### `dwiki check <OWNER/REPO>`
 
-Verifies that a repository is indexed on DeepWiki by sending an HTTP GET
-to `https://deepwiki.com/<owner>/<repo>`.
+Verifies that a repository is indexed on DeepWiki via the MCP server.
+Calls `read_wiki_structure` and checks whether the response contains
+`"Repository not found"`.
 
 | Detail | Value |
 |--------|-------|
 | Exit code 0 | Repository **is** indexed — safe to proceed |
-| Exit code 1 | Repository is **not** indexed (or unreachable) |
-| MCP tool | *(HTTP GET — not an MCP call)* |
+| Exit code 1 | Repository is **not** indexed |
+| MCP tool | `read_wiki_structure` |
 
 ```bash
 dwiki check tokio-rs/tokio
-# INDEXED: tokio-rs/tokio is indexed on DeepWiki (200 OK)
+# INDEXED: tokio-rs/tokio is indexed on DeepWiki
 
 dwiki check myorg/unindexed-repo
-# NOT_INDEXED: myorg/unindexed-repo is not indexed on DeepWiki (404 Not Found)
+# NOT_INDEXED: myorg/unindexed-repo is not indexed on DeepWiki
 # exit code: 1
 ```
 
@@ -67,9 +68,7 @@ dwiki check myorg/unindexed-repo
 ```json
 {
   "repo": "tokio-rs/tokio",
-  "indexed": true,
-  "status": 200,
-  "url": "https://deepwiki.com/tokio-rs/tokio"
+  "indexed": true
 }
 ```
 
@@ -217,7 +216,7 @@ This project uses [CalVer](https://calver.org/) with the scheme **`YYYY.M.PATCH`
 | `M` | Month without leading zero (e.g. `3` for March) |
 | `PATCH` | Patch increment within the month, starting at `0` |
 
-Example: `2026.3.0` is the first release of March 2026; a follow-up fix in the same month would be `2026.3.1`.
+Example: `2026.3.0` is the first release of March 2026; `2026.3.1` is the first patch of that month.
 
 ## License
 
