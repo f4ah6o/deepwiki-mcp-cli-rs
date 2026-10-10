@@ -1,7 +1,7 @@
 use anyhow::Result;
 use serde_json::json;
 
-use crate::mcp::{self, McpConfig, print_result};
+use crate::mcp::{self, print_result, McpConfig};
 
 /// `dwiki read <repo> [topic]`
 ///

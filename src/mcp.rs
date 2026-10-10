@@ -96,7 +96,10 @@ impl McpClient {
         if content_type.contains("text/event-stream") {
             self.parse_sse_response(response).await
         } else {
-            let text = response.text().await.context("Failed to read response body")?;
+            let text = response
+                .text()
+                .await
+                .context("Failed to read response body")?;
             serde_json::from_str(&text).context("Failed to parse JSON response")
         }
     }
@@ -267,8 +270,7 @@ fn extract_tool_result(response: &Value) -> Result<String> {
     }
 
     // Fallback: return the raw result as pretty JSON
-    Ok(serde_json::to_string_pretty(result)
-        .unwrap_or_else(|_| result.to_string()))
+    Ok(serde_json::to_string_pretty(result).unwrap_or_else(|_| result.to_string()))
 }
 
 // ---------------------------------------------------------------------------
@@ -293,7 +295,10 @@ pub fn print_result(output_format: &OutputFormat, text: &str) {
         OutputFormat::Json => {
             // Try to detect if the text is already JSON; if so, pretty-print it.
             if let Ok(v) = serde_json::from_str::<Value>(text) {
-                println!("{}", serde_json::to_string_pretty(&v).unwrap_or_else(|_| text.to_string()));
+                println!(
+                    "{}",
+                    serde_json::to_string_pretty(&v).unwrap_or_else(|_| text.to_string())
+                );
             } else {
                 let wrapper = json!({ "result": text });
                 println!("{}", serde_json::to_string_pretty(&wrapper).unwrap());
