@@ -1,6 +1,6 @@
 [package]
 name = "dwiki"
-version = "2026.3.1"
+version = "2026.10.1"
 edition = "2021"
 rust-version = "1.99"
 description = "Unofficial CLI for the DeepWiki MCP server — query repository documentation from your terminal or coding agent"
