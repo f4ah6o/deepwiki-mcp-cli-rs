@@ -75,12 +75,7 @@ pub struct Cli {
     /// Required when using private-repository endpoints such as
     /// https://mcp.devin.ai/mcp. Pass via DEEPWIKI_TOKEN to avoid
     /// leaking credentials in shell history.
-    #[arg(
-        long,
-        global = true,
-        env = "DEEPWIKI_TOKEN",
-        value_name = "TOKEN"
-    )]
+    #[arg(long, global = true, env = "DEEPWIKI_TOKEN", value_name = "TOKEN")]
     pub token: Option<String>,
 
     /// Output format [default: text]
@@ -100,12 +95,7 @@ pub struct Cli {
     ///
     /// AI-powered `ask` queries can take 20–40 seconds for complex
     /// questions. Set to 60 or higher when running in slow networks.
-    #[arg(
-        long,
-        global = true,
-        default_value = "30",
-        value_name = "SECONDS"
-    )]
+    #[arg(long, global = true, default_value = "30", value_name = "SECONDS")]
     pub timeout: u64,
 
     #[command(subcommand)]

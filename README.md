@@ -218,6 +218,8 @@ This project uses [CalVer](https://calver.org/) with the scheme **`YYYY.M.PATCH`
 
 Example: `2026.3.0` is the first release of March 2026; `2026.3.1` is the first patch of that month.
 
+Releases are allocated by [f4ah6o/calver-action](https://github.com/f4ah6o/calver-action) (`rust-dist.yaml`). Move the `latest` tag to trigger a release: `just release`, or `git tag -f latest <commit> && git push -f origin latest`. The workflow publishes the crate, builds binaries with cargo-dist, and verifies `cargo binstall dwiki`.
+
 ## License
 
 MIT — see [LICENSE](LICENSE).

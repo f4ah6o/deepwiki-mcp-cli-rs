@@ -6,6 +6,5 @@ release-check:
     cargo publish --dry-run
 
 release: release-check
-    version=$(grep -m1 '^version = ' Cargo.toml | cut -d '"' -f 2); \
-    git tag "${version}"; \
-    git push origin "${version}"
+    git tag -f latest HEAD
+    git push -f origin latest
